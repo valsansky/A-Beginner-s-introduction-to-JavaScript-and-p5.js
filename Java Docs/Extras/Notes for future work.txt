@@ -5,6 +5,10 @@
 - Add an OOP section and other relevant more advanced programming topis.
 - Potentially update our interactive challenge system (with \newenvironment), to also save answers, and automatically write them in attachments.
 
+There's a couple of temporary formating \clearpage elements throughout the document.
+These can be removed. It's just so the document looks better.
+Use CTRL+f and search " Temporary Formatting ".
+
 We use three types of "interactive challenges". 
 The numbers are generated automatically. Make sure to update the answer numbers in attachments, if your adding new challenges.
     1. Exercises

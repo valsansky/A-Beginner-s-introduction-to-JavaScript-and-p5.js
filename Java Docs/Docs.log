@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.1) (preloaded format=pdflatex 2026.2.17)  20 FEB 2026 11:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.1) (preloaded format=pdflatex 2026.2.17)  20 FEB 2026 12:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -464,7 +464,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <9> on input line 57.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 57.
-<Assets/P5js_Logo.png, id=146, 602.25pt x 602.25pt>
+<Assets/P5js_Logo.png, id=150, 602.25pt x 602.25pt>
 File: Assets/P5js_Logo.png Graphic file (type png)
 <use Assets/P5js_Logo.png>
 Package pdftex.def Info: Assets/P5js_Logo.png  used on input line 61.
@@ -481,79 +481,79 @@ LaTeX Font Info:    External font `cmex10' loaded for size
  [2
 
 ]
-<Assets/canvas.png, id=204, 420.06938pt x 396.7322pt>
+<Assets/canvas.png, id=209, 420.06938pt x 396.7322pt>
 File: Assets/canvas.png Graphic file (type png)
 <use Assets/canvas.png>
 Package pdftex.def Info: Assets/canvas.png  used on input line 105.
 (pdftex.def)             Requested size: 227.62204pt x 214.97678pt.
  [3 <./Assets/canvas.png>]
-<Assets/VSCode_Interface.png, id=214, 452.892pt x 266.9172pt>
+<Assets/VSCode_Interface.png, id=219, 452.892pt x 266.9172pt>
 File: Assets/VSCode_Interface.png Graphic file (type png)
 <use Assets/VSCode_Interface.png>
-Package pdftex.def Info: Assets/VSCode_Interface.png  used on input line 126.
+Package pdftex.def Info: Assets/VSCode_Interface.png  used on input line 129.
 (pdftex.def)             Requested size: 355.65944pt x 209.616pt.
  [4 <./Assets/VSCode_Interface.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 156--161
+Underfull \hbox (badness 10000) in paragraph at lines 159--164
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 182--187
+Underfull \hbox (badness 10000) in paragraph at lines 185--190
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 188--193
+Underfull \hbox (badness 10000) in paragraph at lines 191--196
 
  []
 
 [5]
-LaTeX Font Info:    Trying to load font information for OML+cmr on input line 197.
+LaTeX Font Info:    Trying to load font information for OML+cmr on input line 200.
  (C:\Users\valde\AppData\Local\Programs\MiKTeX\tex/latex/base\omlcmr.fd
 File: omlcmr.fd 2024/11/19 v2.5n Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 197.
-LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 216.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 200.
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 219.
  (C:\Users\valde\AppData\Local\Programs\MiKTeX\tex/latex/base\omscmr.fd
 File: omscmr.fd 2024/11/19 v2.5n Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 216.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 219.
  [6] [7]
-Underfull \hbox (badness 2165) in paragraph at lines 298--298
+Underfull \hbox (badness 2165) in paragraph at lines 301--301
 []\OT1/cmr/m/n/10.95 A float is a dec-i-mal
  []
 
 
-Underfull \hbox (badness 2384) in paragraph at lines 300--300
+Underfull \hbox (badness 2384) in paragraph at lines 303--303
 \OT1/cmr/m/n/10.95 should be sur-rounded
  []
 
 
-Overfull \hbox (0.36124pt too wide) in paragraph at lines 293--304
+Overfull \hbox (0.36124pt too wide) in paragraph at lines 296--307
  [] 
  []
 
 [8
 
 ] [9] [10]
-Underfull \hbox (badness 1442) in paragraph at lines 468--469
+Underfull \hbox (badness 1442) in paragraph at lines 471--472
 []\OT1/cmr/m/n/10.95 Checks if two val-ues or
  []
 
 
-Overfull \hbox (0.36124pt too wide) in paragraph at lines 459--479
+Overfull \hbox (0.36124pt too wide) in paragraph at lines 462--482
  [] 
  []
 
 [11]
-Overfull \hbox (0.36124pt too wide) in paragraph at lines 535--542
+Overfull \hbox (0.36124pt too wide) in paragraph at lines 538--545
  [] 
  []
 
 [12]
-Underfull \hbox (badness 10000) in paragraph at lines 573--576
+Underfull \hbox (badness 10000) in paragraph at lines 576--579
 
  []
 
@@ -563,7 +563,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 573--576
 
 ] [15] [16] [17] [18
 
-] [19] [20] [21] [22
+] [19] [20] [21] [22] [23] [24] [25
 
 ] (Docs.aux)
  ***********
@@ -571,20 +571,20 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
 Package rerunfilecheck Info: File `Docs.out' has not changed.
-(rerunfilecheck)             Checksum: D6AEFBDF88441891FD9ADBB5F49C37E3;5668.
+(rerunfilecheck)             Checksum: DFF6405934CEA50621553B6B44235764;5889.
  ) 
 Here is how much of TeX's memory you used:
- 23422 strings out of 467866
- 450672 string characters out of 5418325
+ 23455 strings out of 467866
+ 450945 string characters out of 5418325
  844285 words of memory out of 5000000
- 51648 multiletter control sequences out of 15000+600000
+ 51649 multiletter control sequences out of 15000+600000
  636194 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 98i,11n,118p,501b,1861s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 98i,11n,118p,657b,1861s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\valde\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk> <C:\Users\valde\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm0600.pk> <C:\Users\valde\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm0800.pk><C:/Users/valde/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/valde/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/valde/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/valde/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/valde/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/valde/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/valde/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/valde/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/valde/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/valde/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on Docs.pdf (22 pages, 368353 bytes).
+Output written on Docs.pdf (25 pages, 388134 bytes).
 PDF statistics:
- 698 PDF objects out of 1000 (max. 8388607)
- 336 named destinations out of 1000 (max. 500000)
- 308 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 751 PDF objects out of 1000 (max. 8388607)
+ 368 named destinations out of 1000 (max. 500000)
+ 316 words of extra memory for PDF output out of 10000 (max. 10000000)
 

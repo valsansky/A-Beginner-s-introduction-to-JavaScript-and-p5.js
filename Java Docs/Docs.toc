@@ -46,5 +46,15 @@
 \contentsline {subsection}{\numberline {5.3}Function outputs}{19}{subsection.5.3}%
 \contentsline {subsection}{\numberline {5.4}\textbf {\textit {Coding practice: Functions}}}{20}{subsection.5.4}%
 \contentsline {section}{\numberline {6}Mini projects}{20}{section.6}%
-\contentsline {section}{\numberline {7}Attachments}{22}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Summary list for exercises}{22}{subsection.7.1}%
+\contentsline {section}{\numberline {7}Manage Your Projects Using GitHub}{21}{section.7}%
+\contentsline {paragraph}{Git and GitHub}{21}{section*.17}%
+\contentsline {paragraph}{Connecting GitHub to VS Code}{22}{section*.18}%
+\contentsline {paragraph}{Creating a Git repository}{22}{section*.19}%
+\contentsline {paragraph}{Committing to GitHub}{22}{section*.20}%
+\contentsline {paragraph}{Useful Extensions}{23}{section*.21}%
+\contentsline {subparagraph}{Git Graph (by mhutchie)}{23}{section*.22}%
+\contentsline {subparagraph}{Git History (by Don Jayamanne)}{23}{section*.23}%
+\contentsline {paragraph}{The Basic Workflow}{23}{section*.24}%
+\contentsline {paragraph}{Working With other people}{23}{section*.25}%
+\contentsline {section}{\numberline {8}Attachments}{25}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Summary list for exercises}{25}{subsection.8.1}%

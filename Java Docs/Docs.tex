@@ -111,6 +111,9 @@ and p5.js}
         The draw function could for example code a circle bouncing between walls of the canvas.
 
     \subsection{Getting started}
+        We will walk you through getting ready to code in this chapter. Otionally, when
+        you're done setting everything up, check out the section about GitHub.
+
         \subsubsection{Visual Studio Code}
             When coding, we recommend using Visual Studio Code (VS Code).
             VS Code is a free, open-source code editor that is very effecient, and has a lot of features.
@@ -280,7 +283,7 @@ and p5.js}
         by 1. If a circle was drawn at the x value, we can imagine that the circle 
         will move 1 pixel to the right each frame.
     
-    \clearpage % Temporary Styling
+    \clearpage % Temporary Formatting
 
     \subsection{Datatypes in p5.js}
         Variables can contain a lot of different values. These values could be text, 
@@ -541,7 +544,7 @@ and p5.js}
             \end{tabular}
         \end{center}
 
-    \clearpage % Temporary Styling
+    \clearpage % Temporary Formatting
         Usage examples:
 
         \begin{lstlisting}
@@ -582,7 +585,7 @@ and p5.js}
             the left, middle or right third of the canvas.
         \end{practice}
 
-    \clearpage % Temporary Styling
+    \clearpage % Temporary Formatting
 
 \section{Loops and Arrays}
     Sometimes it is useful to repeat similar code multiple times. For example 
@@ -792,7 +795,7 @@ and p5.js}
             white rectangles). Use a for loop nested in another for loop.
         \end{practice}
 
-\clearpage % Temporary Styling
+\clearpage % Temporary Formatting
 \section{Functions}
     In this chapter we learn about functions - one of the most important concepts of 
     programming.
@@ -953,9 +956,123 @@ and p5.js}
 
     \end{project}
 
-\clearpage
+\section{Manage Your Projects Using GitHub}
+    \begin{center}
+        \textbf{Creating a GitHub Account}
+    \end{center}
 
+    When working on bigger projects over longer periods of time, whether alone or in groups, it can be quite beneficial to document your development process and keep track of previous versions of your work. This is where Git and GitHub become very useful tools.
+    Git is a version control system that helps you track changes in your project over time, whilst GitHub is an online platform that hosts Git repositories in the cloud.
+    You can complete this book without using GitHub. However, if you are planning to:
+
+    \begin{itemize}
+        \item Work on longer-term creative code projects
+        \item Collaborate with others
+        \item Build a portfolio
+        \item Share your code online
+        \item Safely experiment without the fear of breaking functional code
+    \end{itemize}
+
+    Then learning the basics of GitHub will make your coding experience and workflow much smoother. If you already have a GitHub account and have experience using it for other projects, you may still want help with setting it up in combination with VS Code. 
+    \begin{center}
+        \textbf{Getting Started}
+    \end{center}
+    
+    \paragraph{Git and GitHub} 
+        To get started, you will need to make a GitHub account. This is done by going to GitHub’s website at: https://github.com/ and signing up. Once you have created your account, you are ready to connect it to VS Code.
+        The next step is to check whether you already have Git installed in VS Code, as that is what is used for version control at base. To do so, all you need to do is:
+
+        \begin{enumerate}
+            \item Open VS Code
+            \item Open the terminal (under “View” select the option “Terminal”)
+            \item In the terminal, type “git --version” and press enter. 
+        \end{enumerate}
+
+        If Git is not installed, you can download it from: https://git-scm.com/.
+        Install it using default settings.
+
+    \paragraph{Connecting GitHub to VS Code}
+        Now that you have created a GitHub account and made sure that Git is installed, it is time to connect it all together in VS Code. To do so, follow the steps below:
+
+        \begin{enumerate}
+            \item Open VS Code
+            \item Click the Accounts tab
+            \item Choose “Sign in with GitHub”
+            \item Follow the browser authentication steps
+        \end{enumerate}
+
+        Once you’ve authenticated successfully, your VS Code will now be linked to your GitHub account. 
+
+    \paragraph{Creating a Git repository}
+        Let’s say you’ve already created your p5 project folder. To initialize Git, all you need to do is:
+
+        \begin{enumerate}
+            \item Open your project folder in VS Code via the explorer tab or otherwise
+            \item Click the Source Control tab
+            \item Click “Initialize Repository”
+        \end{enumerate}
+
+        Once the repository is initialized, VS Code will start tracking changes in your folder.
+
+    \paragraph{Committing to GitHub}
+        When you make changes to your project, you will be able to save these changes as a ‘commit’. A commit is a snapshot of your project at a specific moment. To make a commit is actually very simple. After initializing the repository in the previous step, you will be able to view changes made to your project under the Source Control tab, specifically under “Changes”. Here you will see the specific files that have been modified. 
+        To commit a change, hover over the file in the opened tab, and press the plus icon. As soon as you do so, the file will be moved up to a new tab called “Staged Changes”. The last, and often the most crucial step of the process, is writing a short and concise message describing the changes made. This may seem trivial now, but your future self will thank you for it. Once you are done noting the changes, you can push the commit to GitHub by clicking on the arrow next to the “Commit” button and selecting “Commit and Push” from the dropdown menu.
+
+    \paragraph{Useful Extensions}
+        To make your experience using Git and GitHub in VS Code smoother, we recommend you get a few extensions installed.
+
+        \subparagraph{Git Graph (by mhutchie)}
+            This extension provides a visual representation of your Git repository’s history directly inside VS Code. Instead of reading commits as a simple list, Git Graph also shows you branches, merges, tags, and the overall project timeline. 
+            This makes Git easier to understand visually and simplifies working with branches as well as seeing how different versions of your project connect.
+
+        \subparagraph{Git History (by Don Jayamanne)}
+            This extension allows you to explore the full change history of your files and projects within VS Code. With it, you can:
+
+            \begin{itemize}
+                \item View previous versions of a file
+                \item Compare changes between commits
+                \item See who made specific changes (in collaborative projects)
+                \item Inspect detailed commit logs
+            \end{itemize}
+
+            This makes debugging easier and helps you understand better how your project evolved.
+
+    \paragraph{The Basic Workflow}
+        Using GitHub can seem a bit daunting, but the workflow gets simplified and usually goes a little something like this:
+
+        \begin{enumerate}
+            \item Make changes to your project
+            \item Save the files
+            \item Review changes in Source Control
+            \item Note changes made to the files
+            \item Commit and push changes to GitHub
+            \item Repeat steps 1-5
+        \end{enumerate}
+
+    \paragraph{Working With other people}
+        Using Git and GitHub for group projects is straightforward and highly effective. Once one group member has created a repository, they can add the other members as collaborators in the repository settings on GitHub. 
+        Each collaborator must then: 
+
+        \begin{enumerate}
+            \item Copy the repository link from GitHub
+            \item Use “Clone Repository” in VS Code under the Source Control tab
+            \item Download a local copy of the project to their computer
+        \end{enumerate}
+
+        Cloning the repository creates a full working copy of the shared project on each person’s machine. From here, each member can:
+
+        \begin{itemize}
+            \item Make changes locally
+            \item Commit their changes (create a snapshot of the project)
+            \item Push changes to the shared GitHub repository
+        \end{itemize}
+
+        Before continuing work, members should also pull changes from GitHub to ensure they are working on the latest version of the project.
+
+       
+\clearpage
 \section{Attachments}
+
     \subsection{Summary list for exercises}
     \textbf{Exercise 2.1:}
         \begin{enumerate}[label=\alph*)]
