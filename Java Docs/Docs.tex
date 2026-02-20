@@ -1,0 +1,1010 @@
+% NOTES FOR FUTURE WORK:
+%  Check \Extras\Notes for future work.txt
+
+\documentclass[11pt, a4paper]{article}
+\usepackage{graphicx} % images
+\graphicspath{{Assets/}}
+\usepackage{listings} % for code examples
+
+% clickable titles
+\usepackage[colorlinks=true,linkcolor=black,
+            anchorcolor=black,citecolor=black,
+            filecolor=black,menucolor=black,
+            runcolor=black,urlcolor=black]{hyperref}
+
+%% exercise boxes
+    \usepackage{tcolorbox}
+    \usepackage{enumitem}
+
+    \newcounter{exercise}[section] % creates a counter for exercises
+    \renewcommand{\theexercise}{\thesection.\arabic{exercise}} % formats exercise number; e.g. 2.1
+
+    \newenvironment{exercise}[1][]{ % Takes #1:title
+        \refstepcounter{exercise} 
+        \begin{tcolorbox}[title=Exercise \theexercise: #1]
+    }{
+        \end{tcolorbox}
+    }
+
+%% practices
+    \newcounter{practice}[section]
+    \renewcommand{\thepractice}{\thesection.\arabic{practice}}
+
+    \newenvironment{practice}[1][]{
+        \refstepcounter{practice}
+        \paragraph{Practice \thepractice} #1
+    }{}
+%% Mini projects
+    \newcounter{project}
+    \renewcommand{\theproject}{\arabic{project}}
+
+    \newenvironment{project}[1][]{ 
+        \refstepcounter{project}
+        \begin{center}
+            \textbf{Project \theproject: #1}
+        \end{center}
+    }{}
+
+\title{A beginner’s introduction to JavaScript 
+            
+and p5.js}
+% \author{Andreas Vorgod Damgaard, Platon Arturovich Kir'yanov and Valdemar Sander Skytte}
+\author{Europe Connexion's team\thanks{Made in collaboration with Academia Main().}}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+% p5 logo image
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=4cm]{P5js_Logo.png}
+    \caption{p5.js logo}
+    \label{fig:p5js_Logo}
+\end{figure}
+
+\hfill
+
+% abstract
+\begin{abstract}
+    This document is meant to help beginners and intermediates learn 
+    how to write code in JavaScript using the p5 library. The p5 library is 
+    a library optimized for beginners, that makes it easy and intuitive to 
+    draw and create simple programs. p5 uses JavaScript and is therefore 
+    a great way to learn the language and builds a strong foundation for 
+    learning other languages in the future. By the end of this document 
+    the reader should have a solid grasp on the syntax of the language, as 
+    well as how to operate within it using the p5.js library.
+\end{abstract}
+
+\clearpage
+
+\tableofcontents
+
+\section{Introduction to p5.js}
+    \subsection{What is p5.js?}
+        P5.js is a library for JavaScript. It is optimized for learning to code, and drawing easily.
+        It is a ideal way to start learning the basics of coding. You learn a lot about JavaScript, and
+        build a great foundation for learning other programming languages in the future.
+
+        Use https://p5js.org/reference/ to look up functions, and see all the build in p5 functions.
+    \subsection{The foundation of p5.js}
+        P5.js works using two primary functions:
+        \begin{enumerate}
+            \item function setup()
+            \item function draw()
+        \end{enumerate}
+
+        The setup function is used for initializing the document. This typically involves creating a canvas.
+        The canvas will be the foundation for your code, here you can draw a lot of different things that's
+        being controlled by the program. The canvas works like a coordinate system, with an x- and y-axis.
+        The origin is in the top left corner.
+
+        \begin{figure}[htp]
+            \centering
+            \includegraphics[width=8cm]{canvas.png}
+            \caption{canvas in p5.js with coordinate system}
+            \label{fig:canvas}
+        \end{figure}
+
+        The draw function will run each frame. The draw function is necessary to, for example, code animations.
+        The draw function could for example code a circle bouncing between walls of the canvas.
+
+    \subsection{Getting started}
+        \subsubsection{Visual Studio Code}
+            When coding, we recommend using Visual Studio Code (VS Code).
+            VS Code is a free, open-source code editor that is very effecient, and has a lot of features.
+
+            You can download VS Code at: https://code.visualstudio.com/download 
+
+            \begin{center}
+                \textbf{Understanding The VSCode Interface}
+            \end{center}
+
+            \begin{figure}[htp]
+                \centering
+                \includegraphics[width=12.5cm]{VSCode_Interface.png}
+                \caption{VSCode interface}
+                \label{fig:VSCode_Interface}
+            \end{figure}
+
+            \noindent The layout is very simple and modular. On the left-hand side you 
+            will notice a few icons. These will be explained below in further 
+            detail.
+            \begin{itemize}
+                \item Starting from the top, there is the paper-icon, called the Explorer. 
+                    This tab allows you to view and manage your project files and folders.
+                \item The four next icons are respectively Find \& Replace, Source control (more 
+                    on that later), Run \& debug and the extension tab.
+                \item At the bottom, you will find the Accounts and settings tab.
+            \end{itemize}
+
+            \begin{center}
+                \textbf{Essential Extensions}
+            \end{center}
+            VSCode supports different extensions, that in many ways can improve your workflow.
+            Below are three extensions we highly recommend you get:
+
+            \paragraph{P5 Project Creator \textit{(by Ultamatum)}} This extension makes it easier 
+            to create default p5.js projects in VS Code by generating a ready-to-use 
+            project structure with all the necessary files, which saves time compared to 
+            doing it manually.
+            \paragraph{p5js Snippets \textit{(by Acidic)}} This extension provides snippets for all 
+            functions in p5.js, essentially shortcuts, which elevate the coding 
+            experience by speeding up the process of coding whilst also reducing typing 
+            errors.
+            \paragraph{Live Server \textit{(by Ritwick Dey)}} This extension simply allows you to 
+            launch a local development server in your browser, which automatically refreshes when 
+            you save changes in the code editor. It's a very effecient and easy way to run your code
+            locally.
+            \\
+
+            To install an extension, first go the extensions tab, and search for the extension.
+            Find and select the correct extension (check the author), then click install.
+
+        \subsubsection{Creating A New Project}
+            If you installed P5 Project creator before, creating a new project is very simple:
+            \begin{enumerate}
+                \item Create a project folder on your computer
+                \item Open VSCode and Press \textit{File} in the top left corner, and select "Open Folder"
+                \item Find and select your project folder
+                \item Press view in the top bar of VSCode, and then press command palette
+                \item Write "Create P5 Project" and press enter.
+                \item Done!
+            \end{enumerate}
+
+            The extension will create two files:
+            \begin{itemize}
+                \item Index.html
+                \item Script.js
+            \end{itemize}
+
+            The file names (except file extension, of course!) can be changed, but these are the standard names.
+            You will need both files to run your project. 
+            You will be writing your code inside the JavaScript file. The HTML file will only be used to load 
+            everything from the JavaScript file.
+            \\
+
+            If you want to setup the files manually, still create a project folder. Then create the two files
+            (Index.html and script.js) manually by right clicking inside your folder on VSCode and then select
+            the option "\textit{New File}".
+            When you created both files paste the following code into your HTML and JavaScript file respectively.
+            \\
+
+            \textbf{HTML Template}
+
+            \begin{lstlisting}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Exercise 1</title>
+
+        <script src="https://cdnjs.cloudflare.com/
+            ajax/libs/p5.js/1.4.0/p5.js"></script>
+    </head>
+
+    <body>
+        <script src="sketch.js"></script>
+    </body>
+
+    </html>
+            \end{lstlisting}
+
+            \textbf{JavaScript Template}
+            \begin{lstlisting}
+    function setup() {
+        createCanvas(400, 400);
+    }
+
+    function draw() {
+
+    }
+            \end{lstlisting}
+
+        \subsubsection{Running the code}
+            Now that the necessary files are set up, you can try running the file. 
+            This is done by either right-clicking on the index.html file in the Explorer 
+            tab and selecting the option “Open with Live Server”, or simply by opening 
+            the index.html file and clicking the “Go Live”-button in the bottom right 
+            corner. This should open your browser, where you will be able to view your 
+            program. 
+            \\
+            Try adding the function \textit{background(220);} inside the draw function.
+            When you open the browser with your project you should see a lightgrey box.
+            This is your canvas! Remember to save your project to see it.
+
+\section{Variables}
+    \subsection{What Is a Variable?}
+        A variable acts as a container, that saves a value in the memory. You can 
+        think of it as a box with a name written on it. When we use the name, we 
+        get access to the content.
+        
+        In JavaScript, creating a variable is typically done using “let”.
+        \begin{lstlisting}
+        let x = 100;
+        \end{lstlisting}
+        When creating this variable, three things happen:
+
+        \begin{enumerate}
+            \item We create a variable \textbf{\textit{(let)}}
+            \item We give it a name \textbf{\textit{(x)}}
+            \item We give it a value \textbf{\textit{(100)}}
+        \end{enumerate}
+
+        It's important to note that choosing meaningful names for your variables 
+        can help a lot in your project. E.g.
+
+        \begin{lstlisting}
+        let playerX = 100;
+        let speed = 5;
+        let score = 0;
+        \end{lstlisting}
+        
+        It makes your code easier to read and understand.
+    
+    \subsection{Why Are Variables Important?}
+        In p5.js your canvas is updated several times per second in the draw() function
+        (around 60 times, depending on the framerate). If we want something 
+        to move or change, we must save values in variables to change them continuously.
+        
+        \begin{lstlisting}
+        let x = 50;
+
+        function draw() {
+            x = x + 1;
+        }
+        \end{lstlisting}
+
+        In this example, we are constantly incrementing the variable x’s value
+        by 1. If a circle was drawn at the x value, we can imagine that the circle 
+        will move 1 pixel to the right each frame.
+    
+    \clearpage % Temporary Styling
+
+    \subsection{Datatypes in p5.js}
+        Variables can contain a lot of different values. These values could be text, 
+        numbers and so on. The type of data you assign to the variables, are called 
+        datatypes.
+        
+        Here is a list of possible data types, that you can assign to a variable:
+
+        \begin{center}
+            \begin{tabular}{p{2.9cm}|p{4cm}|p{4.5cm}}
+                \textbf{Datatype} & \textbf{Explanation} & \textbf{Example} \\ [0.5ex]
+                \hline
+                Integer \textit{(number)}  & An integer is a whole number. & let age = \textbf{18};\\ 
+                \hline
+                Float \textit{(number)} & A float is a decimal number. & let height = \textbf{180.5}; \\
+                \hline
+                String & A string is text. To make a string the value should be surrounded by quotation marks. & let name = \textbf{"erasmus"}; \\
+                \hline
+                Boolean & A Boolean is a binary value; it can either be True or False. & let hasGirlfriend = \textbf{false}; let working = \textbf{true}; \\
+            \end{tabular}
+        \end{center}
+
+        Note that JavaScript does not distinguish between Integers and floating-
+        point numbers. Both types are classified as \textit{number}.
+        
+        Different datatypes can be added together. This will often affect the 
+        output data type. Try the following small exercise. Dont worry if you get it 
+        wrong, it can be a bit confusing.
+
+
+        \begin{exercise}[Guess the output datatype]
+            \begin{enumerate}[label=\alph*)]
+                \item let output = age + height;
+                \item let output = height + name;
+                \item let output = name + hasGirlfriend;
+            \end{enumerate}
+        \end{exercise}
+
+    \subsection{Arithmetic Operations in p5.js}
+        Arithmetic operations are mathematical operators, and are used to manipulate 
+        numbers.
+
+        \begin{center}
+            \begin{tabular}{c | c}
+                \textbf{Operator} & \textbf{Meaning} \\
+                \hline
+                + & Addition \\
+                \hline
+                - & Subtraction \\
+                \hline
+                * & Multiplication \\
+                \hline
+                / & Division \\
+                \hline
+                \% & Modulus \\
+            \end{tabular}
+        \end{center}
+
+        The operators can be used on their own, and will evaluate two elements. 
+        E.g. two variables.
+        \begin{lstlisting}
+        let a = 8;
+        let b = 3;
+
+        let sum = a + b;
+        let difference = a - b;
+        let product = a * b;
+        let quotient = a / b;
+        let rest = a % b;
+        \end{lstlisting}
+
+        Using the operators on their own will not affect the variables value. If 
+        you add an equal sign \textit{(=)} after any of the operators, the variable value would be updated E.g.
+
+        \begin{lstlisting}
+        let score = 0; 
+
+        score += 10; // adds 10 to the variable 
+                            value
+        \end{lstlisting}
+        \textit{Comments in JavaScript are written as "//"}
+
+        In this code \textit{score} changes from 0 to 10.
+
+        For incrementing a variable value with 1, use ++
+
+        For decrementing a variable value with 1, use - - 
+        E.g.
+
+        \begin{lstlisting}
+        let score = 5;
+
+        score++; // score increases to 6
+        score--; // score decreases back to 5;
+        \end{lstlisting}
+
+        \subsubsection{What Is Modulus \textit{(\%)}?}
+            Modulus \textit{(\%)} returns the remainder when dividing one number by another. 
+            For example when dividing 10 by 3, you will get a remainder of 1.
+
+            Modulus can for example be used to check if a number is even or uneven:
+
+            \begin{lstlisting}
+            if (number % 2 = = = 0) {
+                console.log("Number is even");
+            }
+            \end{lstlisting}
+
+            This code prints “Number is even” to the console if a number defined by 
+            the \textit{number} variable is even. Any number that is even will when divided by 
+            two, leave a rest of zero. Therefore, a number must be even, if it’s rest of 
+            division by 2, is equal to zero.
+
+    \subsection{\textbf{\textit{Coding practice: Variables}}}
+        \begin{practice}
+            Assign a variable “x” to the value 10 and print its value to the console.
+        \end{practice}
+        \begin{practice}
+            Create two variables a = 8 and b = 2. Then print the sum, difference, 
+            product, quotient and the remainder of division (using modulus: \%) of the two numbers.
+        \end{practice}
+        \begin{practice}
+            Draw a circle in the middle of the canvas with a diameter defined by a 
+            variable d(choose any value, for example 100). Use the text() function with 
+            the variable, to write the diameter inside the circle. 
+            
+            Updating d, should update the diameter and the text displayed.
+        \end{practice}
+        \begin{practice}
+            Make a mouse-tracker that displays relevant information about your mouse on 
+            canvas. Use mouseX and mouseY to write down the mouses current position, 
+            pmouseX and pmouseY to write down the mouses previous position. Then create 
+            two new variables, velocityX and velocityY that describes the mouses speed in 
+            x and y.
+        \end{practice}
+        
+\section{Conditional Execution}
+    In this chapter we will learn how to make decisions in our programs using 
+    conditional execution. Up till this point, our code has run line by line, the 
+    same way every time. With conditional execution, we can make the program react 
+    differently depending on conditions. 
+
+    \subsection{What Is Conditional Execution?}
+        Conditional execution means:	
+        \begin{itemize}
+            \item Run this code ONLY if something is true
+        \end{itemize}
+        
+        In JavaScript we use the "if-statement"
+
+        \begin{lstlisting}
+        if(condition) {
+            // code runs if condition is true
+        }
+        \end{lstlisting}
+
+        The condition statement must be true for the execution to take place.
+
+        \begin{lstlisting}
+        let age = 20;
+
+        if (age >= 18) {
+        console.log("You are an adult");
+        }
+        \end{lstlisting}
+
+        Here we can see that the condition 20$>$=18 is true, and therefore "You 
+        are an adult" will be printed to the console. The operator "$>$=" is called a 
+        Comparison operator, that means greater than or equal to. If age was less 
+        than 18, nothing would be printed, because the condition was not met.
+
+    \subsection{Comparison Operators}
+        Comparison operators are used for comparisons. They always return a 
+        Boolean value (true/false), based on the comparison.
+        \begin{center}
+            \begin{tabular}{p{2.9cm}|p{4cm}|p{4.5cm}}
+                \textbf{Symbol} & \textbf{Operation} & \textbf{Explanation} \\
+                \hline
+                == & Equal & Checks if two values are equal\\
+                \hline
+                === & Strict equal & Checks if two values and their types are equal\\
+                \hline
+                != & Not equal & Checks if two values are equal, returns true if they are not\\ 
+                \hline
+                !== & Strict not equal & Checks if two values or their datatypes are equal, returns true if any of these are not\\
+                \hline
+                $>$ & Greater than & Checks if a value is greater than another\\
+                \hline
+                $<$ & Lesser than & Checks if a value is lesser than another\\
+                \hline
+                $>$= & Greater than or equal & Checks if a value is greater than or equal to another\\
+                \hline
+                $<$= & Lesser than or equal & Checks if a value is lesser than or equal to another\\
+
+            \end{tabular}
+        \end{center}
+
+    \subsection{if...else Statements}
+        When we check if a condition is true or false, it can be useful to have one 
+        thing happen if it's true, and another thing happen if it's false. This is done 
+        using if...else statements.
+
+        \begin{lstlisting}
+        if(condition) {
+            // runs if true
+        } else {
+            // runs if false
+        }
+        \end{lstlisting}
+
+        Example of usage:
+
+        \begin{lstlisting}
+        let temperature = 17;
+
+        if (temperature > 20) {
+            console.log("It is hot");
+        } else {
+            console.log("It is cold");
+        }
+        \end{lstlisting}
+
+        Only one of the "blocks" will run. In this case the else-statement will 
+        run, and print "It is cold", because the condition \textit{17 $>$ 20} will return false.
+
+        \subsubsection{else if statement}
+            The previous example with temperature, was pretty naive, since it only had 
+            two options. The example would say that the weather was cold even if it was 
+            19 degrees, which does not make sense for a lot of people. We can work 
+            around this by adding more than two options. This is done using the \textit{else if} 
+            statement.
+
+            \begin{lstlisting}
+        if (temperature > 20) {
+            console.log("It is hot");
+        } else if (temperature > 15) {
+            console.log("It is moderate");
+        } else {
+            console.log("It is cold");
+        }
+            \end{lstlisting}
+
+            In this example, the statement will find the first true condition, and run 
+            the respective code. In this example 17 degrees would return moderate, 
+            instead of cold.
+    
+    \subsection{Logical operators}
+        Sometimes it can make sense to check multiple conditions. This is done 
+        using logical operators.
+        
+        \begin{center}
+            \begin{tabular}{p{2.9cm}|p{4cm}|p{4.5cm}}
+                \textbf{Symbol} & \textbf{Operation} & \textbf{Explanation} \\
+                \hline
+                \&\& & AND & Checks if two conditions are true. Returns true if both are.\\
+                \hline
+                $||$ & OR & Checks the state of two conditions. Returns true if one of the conditions are true.\\
+            \end{tabular}
+        \end{center}
+
+    \clearpage % Temporary Styling
+        Usage examples:
+
+        \begin{lstlisting}
+        // AND ( && ) usage:
+        if (temperature >= 22 && wind < 10) {
+            console.log("It's beach weather!");
+        }
+
+        // OR ( || ) usage:
+        if (raining === true || temperature < 18) {
+            console.log("Remember a jacket")
+        }
+        \end{lstlisting}
+    
+    \subsection{\textbf{\textit{Coding practice: Conditional Execution}}}
+        \begin{practice}
+            \begin{enumerate}
+                \item Code a small ”drawing program” where a circle is drawn constantly at the cursor’s location.
+                \item Use the built in mouseIsPressed variable to print to the console if the mouse button is held down.
+                \item Upgrade the program so the circles diameter increases when held down.
+            \end{enumerate}
+        \end{practice}
+        \begin{practice}
+            Figure out how key inputs work in p5.js, using p5js.org.
+            Then draw a circle in the middle of the screen. When you press one of the arrow keys, the circle should move 
+            in that direction.
+        \end{practice}
+        \begin{practice}
+            Using a variable \textit{x}, draw a circle that moves along the x-axis on canvas with a specific speed. When the circle hits 
+            a wall, it should change direction so it never leaves the canvas. 
+            \\
+
+            Hint: multiplying the speed with -1 will change the direction.
+        \end{practice}
+        \begin{practice}
+            Make a canvas that can be divided into three equal vertical slices (for example 600x400). Make a program 
+            that highlights one third of the canvas at a time with a rectangle, depending on whether the mouse is on 
+            the left, middle or right third of the canvas.
+        \end{practice}
+
+    \clearpage % Temporary Styling
+
+\section{Loops and Arrays}
+    Sometimes it is useful to repeat similar code multiple times. For example 
+    drawing three circles with diameters 1, 2 and 3. We draw a circle three 
+    times, but with varying diameters. It can be done manually like this:
+
+    \begin{lstlisting}
+        circle(x,y,1); // Circle with diameter = 1
+        circle(x,y,2); // Diameter = 2
+        circle(x,y,3); // Diameter = 3
+    \end{lstlisting}
+
+    The three lines of code are very similar and can be optimized using a 
+    loop. In JavaScript we talk about two different types of loops. For-loops 
+    and while loops. The difference is that in a for loop, we now the number
+    of iterations.
+
+    Try to think of the example with the circles. Should we use a for or 
+    while loop to optimize the code?
+
+    In this example the most optimal loop would be a for loop. It would, since we 
+    have to draw a circle three times i.e. we have three iterations. 
+    Note that a while loop also could be used for this example theoretically.
+
+    \subsection{For loops}
+        A for loop is used to repeat a block of code, a specific number of times.
+        The structure for a for loop looks like this:
+        \begin{lstlisting}
+        for (let i = 0; i < 4; i++) {
+            // code to repeat
+        }
+        \end{lstlisting}
+
+        In the code above, we have a for loop repeating four times.
+        First a variable \textit{i} is being declared, and assigned the value 0.
+        Each time the code has run, the last argument in the for loop (\textit{i++}) runs.
+        So in this example \textit{i} is being incremented by one, for each iteration of the code.
+
+        If we add console.log(i) inside the for loop, like this:
+        \begin{lstlisting}
+        for (let i = 0; i < 4; i++) {
+            console.log(i)
+        }
+        \end{lstlisting}
+
+        And then run the code, the following will be printed to the console:
+
+        \begin{lstlisting}
+        0,
+        1,
+        2,
+        3
+        \end{lstlisting}
+
+        Try the following thinking exercise:
+
+        \begin{exercise}
+            \begin{itemize}
+                \item Why does it print 0,1,2,3 and not 1,2,3,4?
+                \item What would the loop print if we changed the third argument from \textit{i++} to \textit{i+=2}?
+                \item What would the loop print if we changed the first argument from \textit{let i = 0} to \textit{let i = 2}
+            \end{itemize} %0,
+        \end{exercise}
+
+        Now that we now a bit about for loops, we can automize the example 
+        with three circles from before, like this:
+
+        \begin{lstlisting}
+        for (let d = 1; d <= 3; d++) {
+            circle(x,y,d);
+        }
+        \end{lstlisting}
+
+        (x,y) could be any chosen coordinates.
+
+        In this for-loop we use a variable d, that corresponds to the circles diameter.
+        The for loop has three iterations, that look like this:
+
+        \begin{description}
+            \item[d = 1: ] circle(x, y, 1);
+            \item[d = 2: ] circle(x, y, 2);
+            \item[d = 3: ] circle(x, y, 3);
+        \end{description}
+
+        As we can see, it produces the same output as the manual example.
+
+    \subsection{While loops}
+        A while loop will repeat a specific block of code a unspecified number of times.
+        The structure of a while loop, could look like this:
+
+        \begin{lstlisting}
+        while(condition) {
+            // code to repeat
+        }
+        \end{lstlisting}
+
+        For loops can be used instead of while loops in most scenarios. The primary
+        use of while loops are when you don't know the number of iterations. For example
+        when generating a random number like this:
+
+        \begin{lstlisting}
+        let i = 0;
+
+        while(i !== 9) {
+            i = random(0,9);
+        }
+        \end{lstlisting}
+
+        This (completely useless) code, will first define the variable \textit{i} and
+        then continue asssigning it a random value between 0 and 9, until the value 
+        randomly becomes 9.
+        
+        Note that this loop would never actually stop, since the random() function produces floating-point numbers,
+        so it would for example return a number like 1,2312355... We're waiting for \textit{i} to become the integer 9, which will never happen.
+        
+        The code would produce a infinite loop, where the condition will stay true indefinitely, which
+        would ultimately crash your program.
+
+        Try to draw the same three circles as drawn last, this time using a while loop.
+
+        \begin{exercise}
+            \begin{itemize}
+                \item Create a while loop that draws three circles with the diameters 1,2 and 3. 
+            \end{itemize}
+        \end{exercise}
+
+    \subsection{Arrays}
+        Sometimes it is useful to store multiple values to one variable.
+        Think of a graph containing multiple grades from a class. Instead of creating a new
+        variable for each grade, we can instead create one variable containing all grades.
+
+        \begin{lstlisting}
+        let grades = [86, 92, 100, 54, 32, 54, 95, 
+                                    56, 76, ...];
+        \end{lstlisting}
+
+        This is called an array. It's defined using square brackets: [ ]. Each data point inside the brackets
+        are separated by commas.
+
+        Each grade inside the grades array have an index. Note that the indexes start at 0 and not 1.
+        So for example the grade 86 is at index 0, grade 92 is at index 1, grade 100 is at index 2, and so on.
+        Getting one of the grades can be done using \textit{grades[i]} where \textit{i} is the index.
+        For example \textit{grades[5]} would return 54.
+
+        \begin{lstlisting}
+        let grades = [86, 92, 100, 54, 32, 54, 95, 
+                        56, 76, 77, 14, 33, 86, 85, 
+                        96, 100, 60, 75];
+
+        let sum = 0;
+
+        for (let i = 0; i < grades.length; i++) {
+            sum += grades[i];
+        }
+
+        console.log("The average grade is: ", 
+                    sum / grades.length)
+        \end{lstlisting}
+
+        Output: "The average grade is: 70". 
+        
+        The code runs through all the grades and adds them together.
+        When we have the sum of all grades we can divide them by the number of observations, which is the length
+        of the array grades, to get the average grade.
+
+        The code is responsive, so adding new grades to the array, will also update the output(average grade).
+
+        \subsubsection{Modify arrays using simple array methods}
+            We can manipulate an array while the code is running, using differnt methods:
+
+            \begin{center}
+                \begin{tabular}{p{4.5cm}|p{6.7cm}}
+                    \textbf{Method} & \textbf{Explanation} \\ [0.5ex]
+                    \hline
+                    Array.push(element) & Adds element to the end of an array \\
+                    \hline
+                    Array.pop() & Removes the last element of an array \\
+                    \hline
+                    \\
+                    
+                    Array.unshift(element) & Adds element to the front of an array \\
+                    \hline
+                    Array.shift() & Removes the first element of an array \\
+                \end{tabular}
+            \end{center}
+
+    \subsection{\textbf{\textit{Coding practice: Loops and Arrays}}}
+        \begin{practice}
+            Draw 100 circles at random locations on canvas, using a for loop. Then do it 
+            with a while loop.
+        \end{practice}
+        \begin{practice}
+            Use a for loop to draw all numbers between 0 and 100 on canvas on random 
+            locations. The number should be blue if it’s even, and red if it’s uneven.
+            
+            Hint: use i\%2
+        \end{practice}
+        \begin{practice}
+            Define an array “spanishGreetings” and give it these values: “Hola”, “Buenos 
+            dias”, “Buenas tardes” and “Buenas noches”. Now create a for loop that runs 
+            through all elements of the array and writes the greeting in a list downwards. 
+            Add the value “Mucho gusto” to the array, and check if it’s written under the 
+            previous element.
+        \end{practice}
+        \begin{practice}
+            Create a 8x8 chess board on a 800x800 canvas. (changing between black and 
+            white rectangles). Use a for loop nested in another for loop.
+        \end{practice}
+
+\clearpage % Temporary Styling
+\section{Functions}
+    In this chapter we learn about functions - one of the most important concepts of 
+    programming.
+
+    Functions allow us to:
+    \begin{enumerate}
+        \item Organize code and structure large programs
+        \item Avoid repetition by creating reusable logic
+        \item Build more advanced programs
+    \end{enumerate}
+
+    \subsection{What is a function?}
+        A function is a reusable block of code that performs a specific task.
+
+        A function can take inputs, and return outputs based on your inputs.
+        The basic syntax for a function looks like this:
+
+        \begin{lstlisting}
+        function functionName(inputs) {
+            // code to run
+        }
+        \end{lstlisting}
+
+        An example of a simple function, that does the same thing everytime, 
+        ergo, does not take an input, may look like this:
+
+        \begin{lstlisting}
+        function sayHello() {
+            console.log("Hello!");
+        }
+        \end{lstlisting}
+
+        The function can be run (called) anywhere in the code, using: \textit{sayHello()}
+
+        If you don't call the function, it won't run.
+
+    \subsection{Funtion parameters}
+        Functions can also be used as some kind of a "template" if you pass inputs(parameters) to it. 
+        Parameters work as a kind of variable used inside functions. You can pass them on to the function, where
+        they can be used to produce unique outputs.  
+        This is a simple example, where we updated the \textit{sayHello} function, so it can take a parameter; \textit{word}:
+        \begin{lstlisting}
+        function say(word) {
+            console.log(word);
+        }
+        \end{lstlisting}
+        
+        Now when calling the function \textit{say}, we can pass on an arbitrary value to the function, that it will print.
+        For example calling \textit{say("Hello!")} would do the same as calling \textit{sayHello()}.
+        We could also pass on other words to the \textit{say} function, for example \textit{say("¡Buenos Dias!")}, which would print
+        "¡Buenos Dias!". Note that the system does not know what the input \textit{word} means. \textit{word}
+        could also be replaced by another name like \textit{greeting} or something abstract like \textit{x}, 
+        without changing what the function does.
+
+        \begin{lstlisting}
+        function greet(name) {
+            console.log("Hello " + name);
+        }
+
+        greet("Anna"); // Prints: "Hello Anna"
+        greet("Jonas"); // Prints: "Hello Jonas"
+        \end{lstlisting}
+
+        Try this short exercise.
+
+        \begin{exercise}
+            \begin{enumerate}[label=\alph*)]
+                \item What is the parameter being passed on to the \textit{greet} function?
+                \item Create the code for a function that takes the parameter \textit{age}, and then prints "Your age is ..." to the console.
+            \end{enumerate}
+        \end{exercise}
+        
+    \subsection{Function outputs}
+        Other than being able to do small tasks like printing things to the console,
+        functions can also be used to do more advanced operations. We can pass more
+        parameters to the function, and return a output based on the inputs.
+
+        \begin{lstlisting}
+        function sum(a, b) {
+            return a + b;
+        }
+        \end{lstlisting}
+
+        Now when calling the function using two values, for example: \textit{sum(3,5)},
+        it will return the sum of the inputs. So, passing 3 and 5, would return 8.
+        
+        \begin{lstlisting}
+        console.log(10+sum(3,5)); 
+
+        // Prints 18 to the console.
+        \end{lstlisting}
+
+        We can imagine how powerful the function could be if we use an array as a parameter. 
+        If we think of the grading example from section 4.3, we can make a function that 
+        calculates the average grade easily. We're gonna use a shortened version of the \textit{grades}
+        array for simplification.
+
+        \begin{lstlisting}
+    let grades = [86, 92, 100, 54];
+
+    function calculateAverageGrade(gradeArray) {
+        // We take the parameter gradeArray. 
+        // Note that this could be any arbitrary 
+           array with grades.
+
+        let sum = 0;
+
+        for(let i = 0; i < gradeArray.length; i++) {
+            sum += gradeArray[i]; 
+            // This for-loop calculates the sum of 
+               all elements in gradeArray
+        }
+
+        return sum / gradeArray.length;
+    }
+
+    let averageGrade = calculateAverageGrade(grades);
+
+    console.log("The classes average grade is: " 
+                    + averageGrade);
+
+        \end{lstlisting}
+    
+        Note that variables defined inside functions, e.g. \textit{gradeArray}, are only
+        accesible inside the function.
+    
+    \subsection{\textbf{\textit{Coding practice: Functions}}}
+
+\section{Mini projects}
+    When you feel confident in your basic coding skills, improve them by using them in practice.
+    We made a couple of small projects that should help you use different parts of programming to 
+    make larger and more diverse programs. The projects gradually increase in difficulty.
+    
+    \begin{project}[Reaction Clicker Game]
+        Create a simple reaction game, where a red circle appears at a random 
+        location on the canvas. When the player clicks the circle, they 
+        gain 1 point, kept in a “score” variable. The circle (after being clicked) 
+        moves to a new random position and it can then be clicked again. Display 
+        the “score” variable on screen.
+    \end{project}
+    \begin{project}[Falling Objects Dodging Game]
+        Create a game where a player controls a blue circle at the bottom of the 
+        canvas using arrow keys. Red circles randomly fall from the top. If a red circle 
+        hits the player a “Game Over” screen appears. Keep track of the time survived 
+        (can be frames).
+    \end{project}
+    \begin{project}[Two-player Competitive Target Game]
+        Make a simple two-player game, where two players compete to catch targets. One 
+        player (a white circle) can move around canvas with the WASD-keys, the second 
+        player (a blue circle) can move around canvas with the arrow keys. The players 
+        shouldn’t be able to go outside the canvas. At the start of each game, a small 
+        red circle (the target) should appear at a random position. If one of the players 
+        touches the target, it will disappear and a new one will appear at a new random 
+        position. The player that catch the target will get a point.
+
+        When you have the base game, add your own innovative feature. It could be moving
+        targets, obstacles on the canvas or anything else!
+
+    \end{project}
+
+\clearpage
+
+\section{Attachments}
+    \subsection{Summary list for exercises}
+    \textbf{Exercise 2.1:}
+        \begin{enumerate}[label=\alph*)]
+            \item
+                \begin{tabular}{c | c}
+                    number(float) & output = 198.5
+                \end{tabular}
+            \item
+                \begin{tabular}{c | c}
+                    string & output = “180.5erasmus”
+                \end{tabular}
+            \item
+                \begin{tabular}{c | c}
+                    string & output = “erasmusfalse”
+                \end{tabular}
+        \end{enumerate}
+    
+
+    \noindent\textbf{Exercise 4.1:}
+        \begin{enumerate}
+            \item 
+            Possible answer: the variable \textit{i} starts at 0. The value will be 
+            incremented by 1 as long as \textit{i} is lesser than 4. So in the first 
+            iteration we have i = 0. The code runs and then \textit{i++} is run. \textit{i} is now
+            equal to one, and the same continues all the way up to three, which is the last integer that's lesser than 4.
+            \item 0, 2
+            \item 2, 3
+        \end{enumerate}
+
+    \noindent\textbf{Exercise 4.2:}
+        \begin{lstlisting}
+    let d = 1;
+    
+    while(d <= 3) {
+        circle(x,y,d);
+    }
+        \end{lstlisting}
+
+    \noindent\textbf{Exercise 5.1:}
+        \begin{enumerate}[label=\alph*)]
+            \item \textit{name}
+            \item Possible answer: 
+            \begin{lstlisting}
+function printAge(age) {
+    console.log("Your age is " + age);
+}
+
+printAge(21); // Prints: "Your age is 21"
+            \end{lstlisting}
+        \end{enumerate}
+
+\end{document}

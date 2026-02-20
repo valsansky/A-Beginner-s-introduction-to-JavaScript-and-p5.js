@@ -1,0 +1,33 @@
+- Missing Coding Practice for Functions
+- Add possible coding solutions for the coding practices in attachments.
+- Maybe add pictures of final code outputs for the coding practices for visual examples.
+- Everything needs to be read through thoroughly
+- Add an OOP section and other relevant more advanced programming topis.
+- Potentially update our interactive challenge system (with \newenvironment), to also save answers, and automatically write them in attachments.
+
+We use three types of "interactive challenges". 
+The numbers are generated automatically. Make sure to update the answer numbers in attachments, if your adding new challenges.
+    1. Exercises
+        Very small tasks that's primarily meant to strengthen the understanding of the topics.
+
+        Use:
+        \begin{exercise}[title]
+            % exercise text. For example a list of thought exercises.
+        \end{exercise}
+    
+    2. Coding practices
+        At the end of all sections. They are typically larger and involve coding an actual program.
+
+        Use:
+        \begin{practice}
+            % Description of the desired program.
+        \end{practice}
+
+    3. Mini projects
+        Larger projects at the end of the entire document, meant to strengthen the readers skills in coding, 
+        using and combining different parts of programming.
+
+        Use:
+        \begin{project}[title]
+            % Description of the desired program.
+        \end{practice}
